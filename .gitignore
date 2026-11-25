@@ -1,0 +1,66 @@
+.ipynb_checkpoints/
+
+# Project-local Python virtual environment
+.venv/
+
+# External market-data snapshots
+data/raw/
+reproduction_workspace/
+
+# Python generated artifacts
+__pycache__/
+*.py[cod]
+
+# macOS metadata
+.DS_Store
+
+# Local environment variables and API credentials
+.env
+.env.local
+
+# Local teaching runs and generated Track E artifacts
+/outputs/teaching_runs/
+/outputs/track_e_multifamily/
+
+# Local copies of retired publication files
+/Final Quant Approach to Financial Data1.ipynb
+/Images/Figure_10_Rolling_252-Day_Correlation_between_SPY_and_VIX.png
+/Images/Figure_11_Scatter_Plot_of_SPY_vs_VIX_Percentage_Change.png
+/Images/Figure_12_Technical_Analysis.png
+/Images/Figure_13_PCA_on_Stock_Return.png
+/Images/Figure_14_PCA_Component_Loadings.png
+/Images/Figure_15_Scatter_Plot_of_Factor_Exposures.png
+/Images/Figure_16_PCA_Reduced_Data_Clustered_with_KMeans.png
+/Images/Figure_17_Feature_Importances_from_ExtraTreesClassifier.png
+/Images/Figure_18_Naive_Gaussian_Bayes_Classifier.png
+/Images/Figure_19_Logistic_Regression.png
+/Images/Figure_1_Evolution_of_Assets.png
+/Images/Figure_20_Decision_Tree_Classifier.png
+/Images/Figure_21_Random_Forest.png
+/Images/Figure_22_SVM_Classifier.png
+/Images/Figure_23_Voting_Classifier.png
+/Images/Figure_24_MLP_Classifier.png
+/Images/Figure_25_cumulative_returns_comparison.png
+/Images/Figure_2_Relative_Performance_of_Financial_Instruments.png
+/Images/Figure_3_Cumulative_Returns_CAGR_and_Sharpe_ratios_metrics.png
+/Images/Figure_4_Frequency_Distribution_of_the_simulated_log_returns.png
+/Images/Figure_5_Q-Q_plot.png
+/Images/Figure_6_Time_Series_Plots_for_Daily_Return_Distributions.png
+/Images/Figure_7_box_plot_of_daily_returns.png
+/Images/Figure_8_correlation_matrix.png
+/Images/Figure_9_SPX_and_VIX_inverse_relationship.png
+/Images/Picture1.png
+/REPRODUCIBILITY_STATUS.md
+/docs/research/BATCH_A5_BASELINE_VALIDATION.md
+/docs/research/BATCH_A6_EXECUTION_TIMING.md
+/docs/research/BATCH_A7_PORTFOLIO_ACCOUNTING.md
+/docs/research/BATCH_A8_SIGNAL_EXECUTION.md
+/docs/research/BATCH_A9_EVALUATION_PROTOCOL.md
+/notebooks/00_front_matter.ipynb
+/notebooks/01_preliminary_analysis.ipynb
+/notebooks/02_technical_indicators.ipynb
+/notebooks/03_pca_clustering.ipynb
+/notebooks/04_ml_models_backtesting.ipynb
+/notebooks/cell_provenance.json
+/requirements-lock.txt
+/requirements-teaching.txt
