@@ -16,9 +16,7 @@
 
 ## Project Overview
 
-*A Quant Journey* explores machine learning for stock market forecasting using a decade of daily financial data. Framing directional price movements as a binary classification problem, the original research compares linear, tree-based, and other machine-learning models through historical backtesting against an SPY benchmark.
-
-The project examines the predictive potential of random forests alongside the challenges of overfitting, transaction costs, and execution assumptions, while identifying deep learning and causal inference as avenues for further research.
+*A Quant Journey* explores machine learning for stock market forecasting using a decade of daily financial data. It compares classification models and hypothetical trading strategies against an SPY benchmark, examining predictive accuracy, overfitting, and transaction costs.
 
 ![Historical strategy backtests from the 2024 conference presentation](Images/Algo_Trade_Backt.png)
 
