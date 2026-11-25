@@ -1,27 +1,16 @@
 # Teaching Guide
 
-The four notebooks form a reproducible research sequence, from market-data exploration to hypothetical portfolio accounting. Start with the [project README](../../README.md) for installation and execution instructions.
+Follow [Getting Started](../../README.md#getting-started) from the repository root. The runner uses the committed notebooks and Python helpers, links the [included market data](../../data/raw/tpq_eod_2014_2023.csv), and starts a fresh kernel for each notebook. It prints a new directory under `outputs/teaching_runs/` for each run. Open the copies in its `executed/` folder to see the figures and tables.
 
-## Research sequence
+## Reading the notebooks
 
-1. [Understand the data](01_understand_the_data.ipynb) — inspect closes, missing observations, returns, volatility and correlations.
-2. [Construct candidate features](02_construct_candidate_features.ipynb) — explore technical indicators, PCA and clustering; fit learned transformations on training data only.
-3. [Test predictive value](03_test_predictive_value.ipynb) — compare seven fixed classifiers with a training-majority baseline using chronological train/validation splits.
-4. [Predictions to portfolio accounting](04_predictions_to_portfolio_accounting.ipynb) — translate predictions into hypothetical SPY long/cash positions and compare with cash and SPY buy-and-hold.
+1. [Understand the data](01_understand_the_data.ipynb) examines how missing observations affect daily returns, volatility and cross-asset correlations. The teaching analysis uses observations through December 28, 2021.
+2. [Construct candidate features](02_construct_candidate_features.ipynb) explores technical indicators, PCA and clustering. Learned transformations are fitted on the training period only.
+3. [Test predictive value](03_test_predictive_value.ipynb) compares seven fixed classifiers using the same three point-in-time SPY features. Each model predicts the same chronological validation dates. The benchmark always predicts the most frequent training class.
+4. [From predictions to portfolio accounting](04_predictions_to_portfolio_accounting.ipynb) uses Notebook 03’s dated predictions to hold SPY or cash. It compares the resulting portfolios with cash and SPY buy-and-hold over matched dates. Selecting Notebook 04 also runs Notebook 03.
 
-## Execution and outputs
+## Interpreting the results
 
-From the repository root, after installing `requirements.txt` and registering the Jupyter kernel:
+Training precedes validation. Each period excludes examples whose outcomes would still be unknown at its end. The validation dates were examined during development, so the results provide no fresh, untouched holdout estimate.
 
-```sh
-.venv/bin/python scripts/execute_teaching_notebooks.py
-```
-
-The runner uses the included `data/raw/tpq_eod_2014_2023.csv`, runs each notebook in a fresh kernel, and saves executed notebooks and results under `outputs/teaching_runs/`. Notebook 04 consumes Notebook 03's predictions from the same run. The analysis reads market observations only through December 28, 2021.
-
-## Research assumptions and limitations
-
-- Features use information available after close `t`; hypothetical SPY entry is at the next observed close, with valuation at the following observed close—not the next market open.
-- The experiment uses chronological validation and avoids fitting transformations on validation observations. This validation period was previously used during research development; it is **not** an untouched out-of-sample test.
-- Portfolio accounting illustrates zero costs and 5 basis points per traded notional. Dividends, splits, taxes and market impact are excluded; results are price-return proxies, not certified total returns.
-- The notebooks are educational research examples, **not evidence of deployable investment alpha**. Google Colab execution has not been validated.
+A signal uses information available after the close. A position change takes effect at the next observed close and earns its first price return from that close to the following observed close. The backtest compares zero trading costs with an illustrative charge of five basis points per dollar traded. Portfolio returns exclude dividends and splits.
