@@ -20,12 +20,19 @@ PORTFOLIO = {
 }
 
 
+class RestartRequired(RuntimeError):
+    """Keep the cell error that stops Run all, with a short IPython display."""
+
+    def _render_traceback_(self):
+        return [str(self)]
+
+
 def dependencies(number):
     if sys.version_info[:2] != (3, 12):
         raise RuntimeError("Select a Python 3.12 CPU runtime and rerun setup.")
-    restart = "Choose Runtime > Restart session, then run setup again."
+    restart = "Dependencies installed. Choose Runtime > Restart session, then run setup again."
     if getattr(sys, "_aqj_restart_required", False):
-        raise RuntimeError(restart)
+        raise RestartRequired(restart)
     packages = {"numpy", "pandas", "scipy", "matplotlib", "scikit-learn"}
     if number >= 4:
         packages.update(("nbclient", "nbformat"))
@@ -44,7 +51,7 @@ def dependencies(number):
         wheels = "--only-binary=numpy,scipy,scikit-learn,matplotlib,numba,llvmlite"
         subprocess.run([sys.executable, "-m", "pip", "install", wheels, *pins], check=True)
         sys._aqj_restart_required = True
-        raise RuntimeError(restart)
+        raise RestartRequired(restart)
 
 
 def initialize(number):
