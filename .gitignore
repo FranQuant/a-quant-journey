@@ -64,3 +64,6 @@ __pycache__/
 /notebooks/cell_provenance.json
 /requirements-lock.txt
 /requirements-teaching.txt
+
+# Optional VectorBT environment
+.venv-vectorbt/

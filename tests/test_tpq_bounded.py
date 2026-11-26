@@ -101,3 +101,16 @@ def test_entirely_blank_requested_peer(tmp_path):
     path.write_text("Date,SPY,B\n2020-01-02,1,\n2020-01-03,2,4\n")
     with pytest.raises(ValueError, match="Entirely blank"):
         load_tpq_columns_through(path, ["SPY", "B"], "2020-01-02")
+
+
+def test_observed_session_gaps():
+    from src.quant_journey.data.tpq import observed_sessions
+
+    panel = pd.DataFrame({"SPY": [1., None, 3., None], ".SPX": [2., None, 4., 5.],
+                          "EUR=": [1., 2., 3., 4.], "XAU=": [5., 6., 7., 8.]})
+    sessions = observed_sessions(panel)
+    assert list(sessions) == list(panel)
+    assert sessions["SPY"].index.tolist() == [0, 2, 3]
+    assert pd.isna(sessions["SPY"].iloc[-1])
+    for name in ("EUR=", "XAU="):
+        pd.testing.assert_series_equal(sessions[name], panel[name])

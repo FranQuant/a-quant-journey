@@ -22,14 +22,15 @@
 
 ## Research Notebooks
 
-The research workflow is organized into four sequential teaching notebooks.
+The teaching sequence follows one dated prediction experiment from market observations to independently reconciled portfolios.
 
-| Notebook | Research Focus |
-| --- | --- |
-| [01 · Understand the Data](notebooks/teaching/01_understand_the_data.ipynb) | Market-data exploration, returns, volatility and correlations. |
-| [02 · Construct Candidate Features](notebooks/teaching/02_construct_candidate_features.ipynb) | Technical indicators, PCA, clustering and feature construction. |
-| [03 · Test Predictive Value](notebooks/teaching/03_test_predictive_value.ipynb) | Seven classifiers, chronological validation and majority-class benchmark. |
-| [04 · From Predictions to Portfolio Accounting](notebooks/teaching/04_predictions_to_portfolio_accounting.ipynb) | SPY portfolio accounting, transaction costs and benchmark comparisons. |
+| Notebook | Research focus |
+|---|---|
+| [01 — Understand financial market data](notebooks/teaching/01_understand_the_data.ipynb) | Observed sessions, missing prices, returns and volatility. |
+| [02 — Explore candidate features](notebooks/teaching/02_construct_candidate_features.ipynb) | Trailing indicators, train-fitted PCA and clustering. |
+| [03 — Test predictive value](notebooks/teaching/03_test_predictive_value.ipynb) | Seven fixed SPY classifiers and a training-majority baseline. |
+| [04 — From predictions to portfolio accounting](notebooks/teaching/04_predictions_to_portfolio_accounting.ipynb) | Next-close positions, fees and a self-financing ledger. |
+| [05 — Portfolio simulation, reconciliation and analytics](notebooks/teaching/05_vectorbt_portfolio_reconciliation.ipynb) | Independent VectorBT fills, reconciliation and QuantStats analytics. |
 
 ## Getting Started
 
@@ -45,7 +46,7 @@ python3.11 -m venv .venv
 .venv/bin/python scripts/execute_teaching_notebooks.py
 ```
 
-The four notebooks run sequentially and save their outputs locally. See the [Teaching Guide](notebooks/teaching/README.md) for methodological details and additional instructions.
+The default command executes the four base notebooks. The fifth uses a separate analytics kernel. The teaching guide covers the complete run, offline HTML publication and scientific references. [Teaching guide](notebooks/teaching/README.md)
 
 ## License
 

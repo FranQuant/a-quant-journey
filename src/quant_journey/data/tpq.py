@@ -8,6 +8,21 @@ import numpy as np
 import pandas as pd
 
 
+INSTRUMENTS = (
+    "AAPL.O", "MSFT.O", "INTC.O", "AMZN.O", "GS.N", ".SPX",
+    ".VIX", "SPY", "EUR=", "XAU=", "GDX", "GLD",
+)
+
+
+def observed_sessions(panel: pd.DataFrame) -> dict[str, pd.Series]:
+    """Omit inferred shared US calendar blanks. Preserve unexplained gaps."""
+    us_sessions = panel["SPY"].notna() | panel[".SPX"].notna()
+    return {
+        name: series if name in ("EUR=", "XAU=") else series.loc[us_sessions]
+        for name, series in panel.items()
+    }
+
+
 def _read_tpq_date(source) -> date | None:
     """Read the leading ISO date and its comma, returning None only at EOF."""
     field = bytearray()
