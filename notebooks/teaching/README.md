@@ -16,24 +16,26 @@ The tested numerical environments use CPython 3.11.15 on macOS arm64. The root R
 python3.11 -m venv .venv-vectorbt
 .venv-vectorbt/bin/python -m pip install -r requirements-vectorbt.lock
 .venv-vectorbt/bin/python -m ipykernel install --user --name nb05-native
-.venv/bin/python scripts/execute_teaching_notebooks.py --all --html
+.venv/bin/python scripts/execute_teaching_notebooks.py --all
 ```
 
-The default source is the current Git commit. Before publication, use the explicit working-tree snapshot mode:
+By default, the runner uses the current Git commit. During development, use `--candidate` to test uncommitted source changes:
 
 ```bash
-.venv/bin/python scripts/execute_teaching_notebooks.py --candidate --all --html
+.venv/bin/python scripts/execute_teaching_notebooks.py --candidate --all
 ```
 
-The runner prints a fresh directory under `outputs/teaching_runs/`. Its `source.json` identifies every staged source by SHA-256 and records the checkout revision. The candidate can differ from that revision. Fresh kernels execute in the snapshot, reading the local input through the bounded loaders. Selecting 05 by filename also runs 03 and 04. For 01–04 only, omit `--all`. The options `--kernel` and `--analytics-kernel` select registered kernels.
+The runner prints a fresh directory under `outputs/teaching_runs/`. Its `source.json` identifies each source file in the snapshot by SHA-256 and records the checkout revision. Fresh kernels execute in the snapshot, reading the local input through the bounded loaders. Selecting 05 by filename also runs 03 and 04. For 01–04 only, omit `--all`. The options `--kernel` and `--analytics-kernel` select registered kernels.
 
-Open the `executed/` notebooks in JupyterLab or the five `html/` files directly in a modern browser. HTML publication uses local Pandoc (tested 3.9.0.2) and `jupyter-nbconvert` (7.17.0) on PATH. Pandoc typesets Markdown to accessible MathML at export. The dashboard embeds Plotly JavaScript for offline hover and zoom. The camera control exports a static PNG; the reviewed package also includes `dashboard.png`. To view an interactive executed notebook in JupyterLab, trust your own verified output. Offline verification permits localhost kernel traffic and denies external connections.
+Open the notebooks in `executed/` with JupyterLab. To use the interactive dashboard there, trust your own verified output.
+
+For optional local HTML exports, add `--html` to either command and open the files in the run’s `html/` directory in a modern browser. Export requires Pandoc (tested with 3.9.0.2) and `jupyter-nbconvert` (7.17.0) on PATH. Pandoc renders equations as accessible MathML. The dashboard embeds Plotly JavaScript for offline hover and zoom.
 
 The runner supplies 05 with `AQJ_ARTIFACT_DIR` pointing to its own `outputs/track_e_multifamily/`. For manual replay, set that variable to the exact directory of the identified run before starting the analytics kernel.
 
 ## Research boundaries
 
-Data availability ends on 2021-12-28. Training and validation retain only labels available strictly before their respective boundaries. The 1,503 training examples precede the 500 previously examined validation predictions. Reserved observations were excluded from the producing model-development and reported evaluation workflows. An earlier unrestricted dataset-integrity regression accessed the full historical dataset. The historical manifest field `reserved_test_access` describes the producing workflow. Use bounded test selections for reproduction.
+December 28, 2021 is the authorized research observation cutoff. Training and validation retain only labels available strictly before their respective boundaries. The 1,503 training examples precede the 500 previously examined validation predictions. Reserved observations were excluded from the producing model-development and reported evaluation workflows. An earlier unrestricted dataset-integrity regression accessed the full historical dataset. The historical manifest field `reserved_test_access` describes the producing workflow. Use bounded test selections for reproduction.
 
 A feature at close $t$ sets a position at the next observed close. Its first price change runs from that close to the following observed close. Both engines start with USD 1,000 and use fractional SPY shares, zero or five basis points per fill, and terminal marking without a forced sale. They credit no separate dividends or splits. Validation accuracy measures direction; economic outcomes depend on exposure, move size and trading costs.
 
@@ -43,7 +45,7 @@ The recorded NumPy 2.2.6 extension links to Accelerate and SciPy 1.13.1 BLAS lin
 
 ## Scientific identities
 
-Historical producer: `5dd73eda0f2f740365af8cf357696645114da94e`. Protected pre-refinement checkout: `55d5904dd67c029c91005d2643187e34e40a84e2`. Each new run records its own source identity; a publication commit will be identifiable only after publication.
+Historical producer: `5dd73eda0f2f740365af8cf357696645114da94e`. Protected pre-refinement checkout: `55d5904dd67c029c91005d2643187e34e40a84e2`. Release `v0.2.0` identifies commit `55fb109f70a63b38734b26c38ecf36641ebfd902`. Each run records its own source identity.
 
 The historical `data_sha256` is a declared expected input identity. The bounded run does not hash the full historical file. Prediction and scientific output digests below are calculated from produced bytes. Compare them before interpreting portfolio results.
 

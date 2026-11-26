@@ -1,6 +1,6 @@
 # Forecasting Asset Returns Using Machine Learning and Artificial Intelligence
 
-![Python](https://img.shields.io/badge/Python-3.11.15-465766.svg) ![Jupyter](https://img.shields.io/badge/Jupyter-notebooks-465766.svg) ![pandas](https://img.shields.io/badge/pandas-2.2.3-465766.svg) ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4.2-465766.svg) [![MIT License](https://img.shields.io/badge/License-MIT-465766.svg)](LICENSE)
+![Python](https://img.shields.io/badge/Python-3.11.15-465766.svg) ![Jupyter](https://img.shields.io/badge/Jupyter-notebooks-465766.svg) ![pandas](https://img.shields.io/badge/pandas-2.2.3-465766.svg) ![scikit-learn](https://img.shields.io/badge/scikit--learn-1.4.2-465766.svg) ![VectorBT](https://img.shields.io/badge/VectorBT-0.28.5-465766.svg) ![QuantStats](https://img.shields.io/badge/QuantStats-0.0.77-465766.svg) [![MIT License](https://img.shields.io/badge/License-MIT-465766.svg)](LICENSE)
 
 ![AI in Finance conference artwork](Images/Presentation.png)
 
@@ -16,13 +16,19 @@
 
 ## Project Overview
 
-*A Quant Journey* explores machine learning for stock market forecasting using a decade of daily financial data. It compares classification models and hypothetical trading strategies against an SPY benchmark, examining predictive accuracy, overfitting, and transaction costs.
+*A Quant Journey* is a reproducible quantitative finance research project exploring machine learning for financial market forecasting and systematic investment strategies.
+
+Originally presented at the inaugural Artificial Intelligence in Finance Conference in April 2024, the project has evolved into a modular, five-notebook research workflow covering financial data analysis, feature engineering, machine learning, execution-aligned portfolio accounting, and independent backtesting reconciliation.
+
+The framework integrates pandas, NumPy, scikit-learn, VectorBT and QuantStats, emphasizing chronological validation, causal feature construction, transaction costs, financial performance analytics and reproducibility.
 
 ![Historical strategy backtests from the 2024 conference presentation](Images/Algo_Trade_Backt.png)
 
+*Historical strategy results from the April 2024 conference presentation.*
+
 ## Research Notebooks
 
-The teaching sequence follows one dated prediction experiment from market observations to independently reconciled portfolios.
+The current teaching sequence follows a separate SPY prediction experiment from market observations to independently reconciled portfolios.
 
 | Notebook | Research focus |
 |---|---|
@@ -46,7 +52,7 @@ python3.11 -m venv .venv
 .venv/bin/python scripts/execute_teaching_notebooks.py
 ```
 
-The default command executes the four base notebooks. The fifth uses a separate analytics kernel. The teaching guide covers the complete run, offline HTML publication and scientific references. [Teaching guide](notebooks/teaching/README.md)
+The default command executes the four base notebooks. The fifth uses a separate analytics kernel. The teaching guide covers the complete run, optional local HTML export and scientific references. [Teaching guide](notebooks/teaching/README.md)
 
 ## License
 
