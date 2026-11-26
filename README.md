@@ -30,13 +30,13 @@ The framework integrates pandas, NumPy, scikit-learn, VectorBT and QuantStats, e
 
 The current teaching sequence follows a separate SPY prediction experiment from market observations to independently reconciled portfolios.
 
-| Notebook | Research focus |
-|---|---|
-| [01 — Understand financial market data](notebooks/teaching/01_understand_the_data.ipynb) | Observed sessions, missing prices, returns and volatility. |
-| [02 — Explore candidate features](notebooks/teaching/02_construct_candidate_features.ipynb) | Trailing indicators, train-fitted PCA and clustering. |
-| [03 — Test predictive value](notebooks/teaching/03_test_predictive_value.ipynb) | Seven fixed SPY classifiers and a training-majority baseline. |
-| [04 — From predictions to portfolio accounting](notebooks/teaching/04_predictions_to_portfolio_accounting.ipynb) | Next-close positions, fees and a self-financing ledger. |
-| [05 — Portfolio simulation, reconciliation and analytics](notebooks/teaching/05_vectorbt_portfolio_reconciliation.ipynb) | Independent VectorBT fills, reconciliation and QuantStats analytics. |
+| Notebook | Research focus | Google Colab |
+|---|---|---|
+| [01 — Understand financial market data](notebooks/teaching/01_understand_the_data.ipynb) | Observed sessions, missing prices, returns and volatility. | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FranQuant/a-quant-journey/blob/main/notebooks/teaching/01_understand_the_data.ipynb) |
+| [02 — Explore candidate features](notebooks/teaching/02_construct_candidate_features.ipynb) | Trailing indicators, train-fitted PCA and clustering. | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FranQuant/a-quant-journey/blob/main/notebooks/teaching/02_construct_candidate_features.ipynb) |
+| [03 — Test predictive value](notebooks/teaching/03_test_predictive_value.ipynb) | Seven fixed SPY classifiers and a training-majority baseline. | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FranQuant/a-quant-journey/blob/main/notebooks/teaching/03_test_predictive_value.ipynb) |
+| [04 — From predictions to portfolio accounting](notebooks/teaching/04_predictions_to_portfolio_accounting.ipynb) | Next-close positions, fees and a self-financing ledger. | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FranQuant/a-quant-journey/blob/main/notebooks/teaching/04_predictions_to_portfolio_accounting.ipynb) |
+| [05 — Portfolio simulation, reconciliation and analytics](notebooks/teaching/05_vectorbt_portfolio_reconciliation.ipynb) | Independent VectorBT fills, reconciliation and QuantStats analytics. | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/FranQuant/a-quant-journey/blob/main/notebooks/teaching/05_vectorbt_portfolio_reconciliation.ipynb) |
 
 ## Getting Started
 
