@@ -40,19 +40,16 @@ The current teaching sequence follows a separate SPY prediction experiment from 
 
 ## Getting Started
 
-Clone the repository and reproduce the teaching workflow using Python 3.11.
+Clone the repository to explore the research notebooks and reproduce the quantitative research workflow in Python.
 
 ```bash
 git clone https://github.com/FranQuant/a-quant-journey.git
 cd a-quant-journey
-
-python3.11 -m venv .venv
-.venv/bin/python -m pip install -r requirements.txt
-.venv/bin/python -m ipykernel install --sys-prefix --name a-quant-journey
-.venv/bin/python scripts/execute_teaching_notebooks.py
 ```
 
-The default command executes the four base notebooks. The fifth uses a separate analytics kernel. The teaching guide covers the complete run, optional local HTML export and scientific references. [Teaching guide](notebooks/teaching/README.md)
+The notebooks can be explored using JupyterLab or Google Colab, with the appropriate research environment configured.
+
+For dependency installation, environment configuration and execution of the complete five-notebook sequence, refer to the [Teaching and Reproduction Guide](notebooks/teaching/README.md).
 
 ## License
 
